@@ -19,6 +19,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.seisxis.dto.AuthDTO;
 import com.seisxis.thinbox.R;
 import com.seisxis.thinbox.WebViewActivity;
 
@@ -26,11 +27,11 @@ public class ThinboxConnectAsyncTask extends AsyncTask<Void, Void, String> {
 	
 	private ProgressDialog dialog;
     private final Context context;
-    final String serviceUrl;
+    AuthDTO authDTO;
 
-    public ThinboxConnectAsyncTask(Context context, String serviceUrl) {
+    public ThinboxConnectAsyncTask(Context context, AuthDTO authDTO) {
         this.context = context;
-        this.serviceUrl = serviceUrl;
+        this.authDTO = authDTO;
     }
     
     protected void onPreExecute() {
@@ -45,13 +46,13 @@ public class ThinboxConnectAsyncTask extends AsyncTask<Void, Void, String> {
         String returnMessage = null;
         try {
         	
-        	boolean response = validateServiceUrl(serviceUrl);
+        	boolean response = validateService(authDTO);
         	
 			if(!response) {
 				throw new Exception("Invalid URL");
 			} else {
 				Intent i = new Intent(context, WebViewActivity.class);
-				i.putExtra("service_url", serviceUrl);
+				//i.putExtra("authDTO", authDTO);
 				context.startActivity(i);
 			}
 			
@@ -73,7 +74,7 @@ public class ThinboxConnectAsyncTask extends AsyncTask<Void, Void, String> {
     }
 
     
-	private boolean validateServiceUrl(String serviceUrl) throws Exception {
+	private boolean validateService(AuthDTO authDTO) throws Exception {
 				
 		try {
 			SystemClock.sleep(2000);
@@ -81,7 +82,10 @@ public class ThinboxConnectAsyncTask extends AsyncTask<Void, Void, String> {
 			ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 			
-			URL url = new URL(serviceUrl+"/rest/validate/?device=android");
+			String serviceUrl = authDTO.getUrl() + "/rest/validate/?username="+authDTO.getUsername()+"&password="+authDTO.getPassword();
+			System.out.println(serviceUrl);
+			
+			URL url = new URL(serviceUrl);
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
 			CharSequence response = readStream(con.getInputStream());
 						

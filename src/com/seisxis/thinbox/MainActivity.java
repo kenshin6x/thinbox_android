@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.seisxis.dto.AuthDTO;
 import com.seisxis.util.ThinboxConnectAsyncTask;
 
 public class MainActivity extends Activity implements OnClickListener {
@@ -45,9 +46,16 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 		
 		TextView txfServiceUrl = (TextView) findViewById(R.id.txfServiceUrl);
-		final String serviceUrl = txfServiceUrl.getText().toString();
+		TextView txfServiceUsername = (TextView) findViewById(R.id.txfServiceUsername);
+		TextView txfServicePassword = (TextView) findViewById(R.id.txfServicePassword);
+		
+		AuthDTO authDTO = new AuthDTO(
+				txfServiceUrl.getText().toString(),
+				txfServiceUsername.getText().toString(),
+				txfServicePassword.getText().toString()
+		);
 
-		new ThinboxConnectAsyncTask(MainActivity.this,serviceUrl).execute((Void []) null);
+		new ThinboxConnectAsyncTask(MainActivity.this,authDTO).execute((Void []) null);
 
 	}
 	

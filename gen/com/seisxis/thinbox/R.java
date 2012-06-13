@@ -15,11 +15,15 @@ public final class R {
         public static final int icon=0x7f020001;
     }
     public static final class id {
-        public static final int btnSave=0x7f050003;
+        public static final int btnSave=0x7f050007;
         public static final int textView1=0x7f050000;
         public static final int textView2=0x7f050001;
+        public static final int textView3=0x7f050005;
+        public static final int txfServicePassword=0x7f050006;
         public static final int txfServiceUrl=0x7f050002;
-        public static final int webview=0x7f050004;
+        public static final int txfServiceUsername=0x7f050004;
+        public static final int txfUser=0x7f050003;
+        public static final int webview=0x7f050008;
     }
     public static final class layout {
         public static final int main=0x7f030000;
@@ -27,13 +31,15 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f040000;
-        public static final int dialog_connect_message=0x7f040006;
-        public static final int error_network_fail=0x7f040007;
-        public static final int error_thinbox_connect_fail=0x7f040008;
+        public static final int dialog_connect_message=0x7f040008;
+        public static final int error_network_fail=0x7f040009;
+        public static final int error_thinbox_connect_fail=0x7f04000a;
         public static final int main_button=0x7f040003;
         public static final int main_message=0x7f040002;
-        public static final int service_port_txt=0x7f040005;
+        public static final int service_password_txt=0x7f040006;
+        public static final int service_port_txt=0x7f040007;
         public static final int service_url=0x7f040001;
         public static final int service_url_txt=0x7f040004;
+        public static final int service_user_txt=0x7f040005;
     }
 }

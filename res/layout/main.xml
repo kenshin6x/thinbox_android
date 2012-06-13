@@ -5,17 +5,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_x="4dp"
-        android:layout_y="4dp"
+        android:layout_height="400dp"
+        android:layout_x="2dp"
+        android:layout_y="5dp"
         android:orientation="vertical" >
 
         <TextView
+            android:layout_marginBottom="20px"
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_message"
-            android:paddingBottom="30px"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -32,13 +32,43 @@
             android:ems="10"
             android:text="http://" >
 
+            <requestFocus />
         </EditText>
 
-        <Button
-            android:id="@+id/btnSave"
+        <TextView
+            android:id="@+id/txfUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/service_user_txt"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/txfServiceUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/service_password_txt"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/txfServicePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <Button
+            android:layout_marginTop="10px"
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/main_button" />
+
     </LinearLayout>
 
 </AbsoluteLayout>

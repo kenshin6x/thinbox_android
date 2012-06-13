@@ -5,11 +5,13 @@
 
     <string name="service_url">Service Address (URL)</string>
 
-    <string name="main_message">Please, put a valid url address to connect to a Thinbox web service:</string>
+    <string name="main_message">Please, provide your credentials to connect to Thinbox web service:</string>
 
-    <string name="main_button">OK, save and go</string>
+    <string name="main_button">Connect</string>
 
     <string name="service_url_txt">URL</string>
+    <string name="service_user_txt">Username</string>
+    <string name="service_password_txt">Password</string>
 
     <string name="service_port_txt">Port:</string>
     
