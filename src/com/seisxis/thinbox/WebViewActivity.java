@@ -1,13 +1,16 @@
 package com.seisxis.thinbox;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class ThinboxActivity extends Activity {
+public class WebViewActivity extends Activity {
 	
 	WebView mWebView;
+	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 	
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -18,7 +21,7 @@ public class ThinboxActivity extends Activity {
 	    mWebView.setWebViewClient(new WebViewClient());
 	    mWebView.getSettings().setJavaScriptEnabled(true);
 	    
-	    mWebView.loadUrl("http://186.236.198.209:9090/m/");
+	    mWebView.loadUrl(prefs.getString("SERVICE_URL",""));
 	}
 	
 }

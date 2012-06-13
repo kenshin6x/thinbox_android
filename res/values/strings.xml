@@ -3,4 +3,14 @@
 
     <string name="app_name">Thinbox</string>
 
+    <string name="service_url">Service Address (URL)</string>
+
+    <string name="main_message">Please, set a valid url to the Thinbox web service:</string>
+
+    <string name="main_button">OK, save and go</string>
+
+    <string name="service_url_txt">URL</string>
+
+    <string name="service_port_txt">Port:</string>
+
 </resources>
