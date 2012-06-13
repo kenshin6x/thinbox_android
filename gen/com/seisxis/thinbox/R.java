@@ -27,6 +27,9 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f040000;
+        public static final int dialog_connect_message=0x7f040006;
+        public static final int error_network_fail=0x7f040007;
+        public static final int error_thinbox_connect_fail=0x7f040008;
         public static final int main_button=0x7f040003;
         public static final int main_message=0x7f040002;
         public static final int service_port_txt=0x7f040005;

@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="186.236.198.209:9090" >
+            android:text="http://" >
 
         </EditText>
 
