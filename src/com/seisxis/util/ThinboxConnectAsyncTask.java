@@ -51,8 +51,9 @@ public class ThinboxConnectAsyncTask extends AsyncTask<Void, Void, String> {
 			if(!response) {
 				throw new Exception("Invalid URL");
 			} else {
+				
 				Intent i = new Intent(context, WebViewActivity.class);
-				//i.putExtra("authDTO", authDTO);
+				i.putExtra(AuthDTO.AUTH_URL_INFO, authDTO.getUrl());
 				context.startActivity(i);
 			}
 			
@@ -82,8 +83,7 @@ public class ThinboxConnectAsyncTask extends AsyncTask<Void, Void, String> {
 			ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 			
-			String serviceUrl = authDTO.getUrl() + "/rest/validate/?username="+authDTO.getUsername()+"&password="+authDTO.getPassword();
-			System.out.println(serviceUrl);
+			String serviceUrl = authDTO.getUrl() + "/rest/validate/?tolken=android";
 			
 			URL url = new URL(serviceUrl);
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();

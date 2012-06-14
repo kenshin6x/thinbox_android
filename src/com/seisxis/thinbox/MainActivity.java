@@ -2,12 +2,10 @@ package com.seisxis.thinbox;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,17 +18,14 @@ import com.seisxis.util.ThinboxConnectAsyncTask;
 
 public class MainActivity extends Activity implements OnClickListener {
 	
+	AuthDTO authDTO;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		
-		String serviceUrl = getPreferences(MODE_PRIVATE).getString("service_url","");
-		
-		if(!serviceUrl.equals(null)) {
-			TextView txfServiceUrl = (TextView) findViewById(R.id.txfServiceUrl);
-			txfServiceUrl.setText(serviceUrl);
-		}
+		TextView txfServiceUrl = (TextView) findViewById(R.id.txfServiceUrl);
+		txfServiceUrl.setText(PreferenceManager.getDefaultSharedPreferences(this).getString(AuthDTO.AUTH_URL_INFO,"http://"));
 		
 		Button btnSave = (Button) findViewById(R.id.btnSave);
 		btnSave.setOnClickListener(this);
@@ -46,14 +41,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 		
 		TextView txfServiceUrl = (TextView) findViewById(R.id.txfServiceUrl);
-		TextView txfServiceUsername = (TextView) findViewById(R.id.txfServiceUsername);
-		TextView txfServicePassword = (TextView) findViewById(R.id.txfServicePassword);
 		
-		AuthDTO authDTO = new AuthDTO(
-				txfServiceUrl.getText().toString(),
-				txfServiceUsername.getText().toString(),
-				txfServicePassword.getText().toString()
-		);
+		authDTO = new AuthDTO(txfServiceUrl.getText().toString());
 
 		new ThinboxConnectAsyncTask(MainActivity.this,authDTO).execute((Void []) null);
 

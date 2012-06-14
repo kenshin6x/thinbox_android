@@ -5,17 +5,15 @@
 
     <string name="service_url">Service Address (URL)</string>
 
-    <string name="main_message">Please, provide your credentials to connect to Thinbox web service:</string>
+    <string name="main_message">Please, provide a valid url to connect to Thinbox web service:</string>
 
     <string name="main_button">Connect</string>
 
     <string name="service_url_txt">URL</string>
-    <string name="service_user_txt">Username</string>
-    <string name="service_password_txt">Password</string>
 
     <string name="service_port_txt">Port:</string>
     
-    <string name="dialog_connect_message">Connecting, Please Wait...</string>
+    <string name="dialog_connect_message">Connecting, Please Wait &#8230;</string>
     
     <string name="error_network_fail">Please, enable network before connect to Thinbox.</string>
     <string name="error_thinbox_connect_fail">Cant connect to Thinbox service, please check your URL.</string>

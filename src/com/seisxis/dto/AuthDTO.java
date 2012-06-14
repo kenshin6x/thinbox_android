@@ -3,13 +3,12 @@ package com.seisxis.dto;
 public class AuthDTO {
 	
 	private String url;
-	private String username;
-	private String password;
+	public static final String AUTH_URL_INFO = "AUTH_URL_INFO";
+	public static final String MOBILE_AUTH_TOKEN_NAME = "auth_token";
+	public static final String MOBILE_AUTH_TOKEN_VALUE = "e4bbe5b7a4c1eb55652965aee885dd59bd2ee7f4";
 	
-	public AuthDTO(String url, String username, String password) {
+	public AuthDTO(String url) {
 		this.url = url;
-		this.username = username;
-		this.password = password;
 	}
 	
 	public String getUrl() {
@@ -20,20 +19,9 @@ public class AuthDTO {
 		this.url = url;
 	}
 	
-	public String getUsername() {
-		return username;
-	}
-	
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	
-	public String getPassword() {
-		return password;
-	}
-	
-	public void setPassword(String password) {
-		this.password = password;
+	@Override
+	public String toString() {
+		return url;
 	}
 	
 	
